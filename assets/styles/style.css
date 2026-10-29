@@ -45,48 +45,37 @@ body {
 
 .header {
   position: relative;
-  width: 100%;
-
   display: flex;
-  background-color: rgb(0, 0, 255);
+  background-color: rgb(220, 230, 163);
 }
 
-.header div {
+.header__unit {
+  padding: 1rem;
+
+  background-color: rgb(65, 225, 108);
+}
+
+.header__unit:nth-child(2) {
+  background-color: deepskyblue;
+}
+.header__unit:nth-child(3) {
+  background-color: royalblue;
+}
+
+
+.clock {
   position: relative;
-  padding: 0.5rem;
-  background-color: rgb(0, 255, 0);
-}
-
-.header div:nth-child(2) {
-  background-color: cyan;
-}
-
-.header div:nth-child(3) {
-  background-color: magenta;
-}
-
-.header div:nth-child(4) {
-  background-color: yellow;
-}
-
-.content {
-  position: relative;
-  flex: 1;
-
   display: flex;
-  flex-flow: column;
+  background-color: rgb(25, 47, 170);
 }
 
-.content div {
-  position: relative;
-  padding: 0.5rem;
-  background-color: lightpink;
+.clock__unit {
+  padding: 1rem;
+  background-color: rgb(24, 180, 32);
 }
-
-.content div:nth-child(2) {
-  background-color: lightgreen;
+.clock__unit:nth-child(2) {
+  background-color: rgb(165, 28, 28);
 }
-
-.content div:nth-child(3) {
-  background-color: lightsalmon;
+.clock__unit:nth-child(3) {
+  background-color: rgba(69, 141, 48, 0.544);
 }
