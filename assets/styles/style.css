@@ -65,13 +65,16 @@ body {
 
 .clock {
   position: relative;
+  flex: 1;
   display: flex;
+  flex-flow: column;
   background-color: rgb(25, 47, 170);
 }
 
 .clock__unit {
   padding: 1rem;
   background-color: rgb(24, 180, 32);
+  transition: flex 0.5s ease-out;
 }
 .clock__unit:nth-child(2) {
   background-color: rgb(165, 28, 28);
