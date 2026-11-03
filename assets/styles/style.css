@@ -53,10 +53,13 @@ body {
   padding: 1rem;
   font-size: 20px;
   background-color: rgb(255, 242, 179);
+  font-size: 30px;
+  padding: 40px;
 }
 
 .header__unit:nth-child(2) {
   background-color: rgb(30, 139, 222);
+  color: white;
 }
 .header__unit:nth-child(3) {
   background-color: rgb(255, 242, 179);
@@ -64,6 +67,7 @@ body {
 
 .header__unit:nth-child(4) {
   background-color: rgb(30, 139, 222);
+  color: white;
 }
 
 
