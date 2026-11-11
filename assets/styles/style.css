@@ -39,54 +39,109 @@ body {
 .main {
   flex: 3;
 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr)
+}
+
+.bars {
+  position: relative;
   display: flex;
   flex-flow: column;
 }
 
-.header {
+.bars__unit {
+  --value: var(--seconds-progress);
+
   position: relative;
-  width: 100%;
-
-  display: flex;
-  background-color: rgb(0, 0, 255);
-}
-
-.header div {
-  position: relative;
-  padding: 0.5rem;
-  background-color: rgb(0, 255, 0);
-}
-
-.header div:nth-child(2) {
-  background-color: cyan;
-}
-
-.header div:nth-child(3) {
-  background-color: magenta;
-}
-
-.header div:nth-child(4) {
-  background-color: yellow;
-}
-
-.content {
-  position: relative;
+  width: calc(var(--value) * 100%);
   flex: 1;
 
-  display: flex;
-  flex-flow: column;
+  background-color: blue;
 }
 
-.content div {
+#bars-minute {
+  --value: var(--minutes-progress);
+
+  background-color: red;
+}
+
+#bars-hour {
+  --value: var(--hours-progress);
+
+  background-color: green;
+}
+
+.grid {
   position: relative;
-  padding: 0.5rem;
-  background-color: lightpink;
+
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 }
 
-.content div:nth-child(2) {
-  background-color: lightgreen;
+.grid__unit {
+  --value: var(--second);
+  --column: calc(mod(var(--value),  10) + 1);
+  --row: round(up, calc(var(--value) + 1) / 10);
+
+  position:relative;
+  height: calc(100% / 3);
+
+  grid-column: var(--column) / var(--column) ;
+  grid-row: var(--row);
+  align-self: flex-end;
+
+  background-color: tomato;
 }
 
-.content div:nth-child(3) {
-  background-color: lightsalmon;
+#grid-minute {
+  --value: var(--minute);
+  align-self: center ;
+
+  background-color: rgb(0, 255, 47);
 }
+
+#grid-hour {
+  --value: var(--hour);
+  align-self: flex-start ;
+
+  background-color: rgb(26, 26, 127);
+}
+
+.clock {
+  position:relative;
+}
+
+.clock__unit {
+  --value: var(--seconds-progress);
+  --color: red;
+
+  position: absolute;
+  top: 50% ;
+  left: 50% ;
+
+  width: 4px;
+  height: 75%;
+
+
+  transform: translate(-50%, -50%) rotate(calc(var(--value) * 360deg));
+  background-image: linear-gradient(var(--color) 50%, transparent 50%);
+}
+
+#clock-minute {
+  --value: var(--minutes-progress);
+  --color: green;
+
+  width: 7px;
+  height: 70%;
+}
+
+#clock-hour {
+  --value: calc(var(--hours-progress)) * 2;
+  --color: orange;
+
+  width: 10px;
+  height: 35%;
+}
+
