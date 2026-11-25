@@ -2,7 +2,9 @@ function initPage() {
 const canvas = document.getElementById("canvas");
 renderCanvas(canvas, TIME.now());
 
-  TIME.on("second", (t) => {});
+  TIME.on("second", (t) => {
+    renderCanvas(canvas, t);
+  });
 }
 
 document.addEventListener("DOMContentLoaded", initPage);
@@ -37,9 +39,50 @@ function renderCanvas(canvas, time) {
 
   ctx.fillStyle = "red";
   ctx.fillRect(0, 0, width, height);
+  
 
-  fillSquare(ctx, 40, 100, 20, "blue");
-  fillCircle(ctx, 200, 300, 50, "pink");
-  fillTriangle(ctx, 500, 200, 50, "green");
+  function getRandomCoordinates(size) {
+   const x = Math.floor(Math.random() * (width - size));
+   const y = Math.floor(Math.random() * (height - size));
+
+   return { x, y };
+  }
+
+  function renderSeconds(seconds) {
+    const size = 10;
+    const color = "blue";
+
+    for (let i = 0; i < seconds; i++) {
+      const { x, y } = getRandomCoordinates(size);
+
+      fillSquare(ctx, x, y, size, color);
+    }
+  }
+  
+  function renderMinutes(minute) {
+    const size = 20;
+    const color = "green";
+
+    for (let i = 0; i < minute; i++) {
+      const { x, y } = getRandomCoordinates(size);
+
+      fillCircle(ctx, x, y, size, color);
+    }
+  }
+
+  function renderHours(hour) {
+    const size = 40;
+    const color = "yellow";
+
+    for (let i = 0; i < hour; i++) {
+      const { x, y } = getRandomCoordinates(size);
+
+      fillTriangle(ctx, x, y, size, color);
+    }
+  }
+
+  renderSeconds(time.second);
+  renderMinutes(time.minute);
+  renderHours(time.hour);
+
 }
-
